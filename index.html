@@ -37,14 +37,20 @@
                 bottom: 0;
             }
             /* https://shkspr.mobi/blog/2020/12/a-terrible-way-to-do-footnotes-in-html */
-            details, summary, h2 ~ p {
+            details, summary, p._expandable {
                 display: inline;
             }
+            /* https://stackoverflow.com/questions/33384318/how-to-use-nbsp-in-html5, https://developer.mozilla.org/en-US/docs/Web/CSS/white-space */
             summary {
                 cursor: pointer;
+                white-space: pre-wrap !important;
+                /* text-decoration: underline dotted; */
             }
             summary::after {
-                content: "...";
+                content: "…)";
+            }
+            summary._standalone::after {
+                content: "….)";
             }
             [open] summary::after {
                 content: "";
@@ -54,6 +60,15 @@
             }
             ._alternate {
                 background-color: var(--bs-gray-dark);
+            }
+            section {
+                color: rgba(255, 255, 255, 0.75);
+            }
+			section h2, section:hover {
+                color: rgba(255, 255, 255, 0.95);
+            }
+            details {
+                color: rgba(255, 255, 255, 0.55);
             }
         </style>
     </head>
@@ -65,10 +80,13 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="#scroll">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#_about">About</a></li>
+                        <!-- 
                         <li class="nav-item"><a class="nav-link" href="#_investors">Investors</a></li>
                         <li class="nav-item"><a class="nav-link" href="#_producers">Producers</a></li>
+                        -->
                         <li class="nav-item"><a class="nav-link" href="#_partners">Partners</a></li>
+                        <li class="nav-item"><a class="nav-link" href="mailto:hello@filmangels.com">Contact</a></li>
                     </ul>
                 </div>
             </div>
@@ -109,7 +127,7 @@
                         <div class="col-lg-6 order-lg-1">
                             <div class="p-5">
                                 <h2 class="display-4">World's premier angel group for film</h2>
-                                <p>Film Angels is the world's first and foremost professional angel investor organization dedicated to funding independent film projects. It connects the most promising new movie ventures with the most suitable individual investors, aka angels. Modeled after leading angel networks, Film Angels has been discreetly active in Silicon Valley and beyond for over fifteen years. Members of its local chapters in San Francisco, Palo Alto–Mountain View–San Jose, Los Angeles, New York City, and London have invested in dozens of productions.</p>
+                                <p class="_expandable">Film Angels is the world's first and foremost professional angel investor organization dedicated to funding independent film projects. It connects the most promising new movie ventures with the most suitable individual investors, aka angels. Modeled after leading angel networks, Film Angels has been discreetly active in Silicon Valley and beyond for over fifteen years. Members of its local chapters <details><summary>(in </summary>San Francisco, Palo Alto–Mountain View–San Jose, Los Angeles, New York City, and London)</details> have invested in dozens of productions.</p>
                             </div>
                         </div>
                     </div>
@@ -125,7 +143,7 @@
                         <div class="col-lg-6">
                             <div class="p-5">
                                 <h2 class="display-4">Funding film the Silicon Valley way</h2>
-                                <p>Wall Street investment banker–turned–entrepreneur Thomas Trenker founded Film Angels in his twenties after helping found or fund multiple startups. Sand Hill Road venture capitalist Saad Khan of Guy Kawasaki's Garage Technology Ventures served as his cofounder. <details><summary>(</summary>The founding team also comprises a diverse group of influential Silicon Valley professionals from a variety of backgrounds such as early-stage investing, corporate law, real estate, software development, and internet startups.</details>) Film Angels has since grown into a go-to resource for Hollywood A-listers, Oscar winners and nominees, industry greats, and rising stars looking to fund their independent films or personal projects outside the studio system. <details><summary>(</summary>Creative control counts as a precious commodity in high demand among the world's top filmmakers.</details>) Statistically, $5-10 million budgets represent the sweet spot of successful film finance. They allow for first-rate, Academy Award–winning production values without precluding superior risk-adjusted ROIs. Win-wins become not only possible but increasingly likely.</p>
+                                <p class="_expandable">Wall Street investment banker–turned–entrepreneur Thomas Trenker founded Film Angels in his twenties after helping found or fund multiple startups. Sand Hill Road venture capitalist Saad Khan of Guy Kawasaki's Garage Technology Ventures served as his cofounder. <details><summary class="_standalone">(The</summary> founding team also comprises a diverse group of influential Silicon Valley professionals from a variety of backgrounds such as early-stage investing, corporate law, real estate, software development, and internet startups.)</details> Film Angels has since grown into a go-to resource for Hollywood A-listers, Oscar winners and nominees, industry greats, and rising stars looking to fund their independent films or personal projects outside the studio system. <details><summary class="_standalone">(Creative</summary> control counts as a precious commodity in high demand among the world's top filmmakers.)</details> Statistically, $5-10 million budgets represent the sweet spot of successful film finance. They allow for first-rate, Academy Award–winning production values without precluding superior risk-adjusted ROIs. Win-wins become not only possible but increasingly likely.</p>
                             </div>
                         </div>
                     </div>
@@ -141,7 +159,7 @@
                         <div class="col-lg-6 order-lg-1">
                             <div class="p-5">
                                 <h2 class="display-4">Boldly go where others fear to tread</h2>
-                                <p>The venerable Wall Street Journal has written about Film Angels' success on its blog and in the newspaper's business section, as have other major publications <details><summary>(</summary>e.g., San Jose Mercury News, San Francisco Chronicle</details>). Film Angels regularly features such luminaries as Apple founder Steve Wozniak, AOL CEO Barry Schuler, Movielink CEO Jim Ramo, San Francisco Film Commission Executive Director Stefanie Coyote, '90s pop sensation Lance Bass, California Film Commissioner Hilary Armstrong, and many more. Internet giant Google even made its headquarters available exclusively to Film Angels for an unprecedented pitch extravaganza headlined by legendary rock icon Carlos Santana and billionaire venture capitalist Tim Draper.</p>
+                                <p class="_expandable">The venerable Wall Street Journal has written about Film Angels' success on its blog and in the newspaper's business section, as have other major publications <details><summary>(e.g., </summary>San Jose Mercury News, San Francisco Chronicle)</details>. Film Angels regularly features such luminaries as Apple founder Steve Wozniak, AOL CEO Barry Schuler, Movielink CEO Jim Ramo, San Francisco Film Commission Executive Director Stefanie Coyote, '90s pop sensation Lance Bass, California Film Commissioner Hilary Armstrong, and many more. Internet giant Google even made its headquarters available exclusively to Film Angels for an unprecedented pitch extravaganza headlined by legendary rock icon Carlos Santana and billionaire venture capitalist Tim Draper.</p>
                             </div>
                         </div>
                     </div>
@@ -157,7 +175,7 @@
                         <div class="col-lg-6">
                             <div class="p-5">
                                 <h2 class="display-4">Unrivaled platform for the best and brightest</h2>
-                                <p>With up to 1,000 potential investors in attendance at a time, Film Angels meetings have served as a powerful platform for the in-person pitches of many celebrated filmmakers and famous actors, including Lori Petty <details><summary>(</summary>"League of Their Own," "Point Break," "Tank Girl," "Poker House"</details>), Sean Astin <details><summary>(</summary>"Lord of the Rings," "Goonies," "Rudy"</details>), David Lynch <details><summary>(</summary>"Twin Peaks," "Dune," "Mulholland Dr."</details>), Matt Smith <details><summary>(</summary>"Doctor Who," "Womb"</details>), Adrian Grenier <details><summary>(</summary>"Entourage," "Devil Wears Prada"</details>), Peter Krause <details><summary>(</summary>"Parenthood," "Six Feet Under," "Truman Show"</details>), Danny Glover <details><summary>(</summary>"Lethal Weapon 1-4," "Saw," "Color Purple," "2012," "Shooter"</details>), David Arquette <details><summary>(</summary>"Scream," "Cougar Town"</details>), Kristin Davis <details><summary>(</summary>"Sex and the City"</details>), Frank Darabont <details><summary>(</summary>"Shawshank Redemption," "Walking Dead," "Green Mile," "Mist," "Mary Shelley’s Frankenstein"</details>), Ajay Naidu <details><summary>(</summary>"Office Space," "Pi," "Bad Santa"</details>), Ron Fricke <details><summary>(</summary>"Star Wars III," "Samsara," "Baraka"</details>), Barrie Osborne <details><summary>(</summary>"Matrix," "Lord of the Rings," "Great Gatsby"</details>), Eugene Roddenberry Jr. <details><summary>(</summary>"Star Trek," "Earth: Final Conflict"</details>), and Ralph Guggenheim <details><summary>(</summary>"Toy Story"</details>). Only accredited investors with an express interest in movies are invited to attend these pitch sessions and to participate in the presented investment opportunities. <details><summary>(</summary>Under the federal securities laws, a company that offers or sells its securities must register the securities with the SEC or find an exemption from the registration requirements. The federal securities laws provide companies with a number of exemptions. For some of the exemptions, such as Rule 506 of Regulation D, a company may sell its securities to what are known as accredited investors. The term accredited investor is defined in Rule 501 of Regulation D.</details>)</p>
+                                <p class="_expandable">With up to 1,000 potential investors in attendance at a time, Film Angels meetings have served as a powerful platform for the in-person pitches of many celebrated filmmakers and famous actors, including Lori Petty <details><summary>(</summary>"League of Their Own," "Point Break," "Tank Girl," "Poker House")</details>, Sean Astin <details><summary>(</summary>"Lord of the Rings," "Goonies," "Rudy")</details>, David Lynch <details><summary>(</summary>"Twin Peaks," "Dune," "Mulholland Dr.")</details>, Matt Smith <details><summary>(</summary>"Doctor Who," "Womb")</details>, Adrian Grenier <details><summary>(</summary>"Entourage," "Devil Wears Prada")</details>, Peter Krause <details><summary>(</summary>"Parenthood," "Six Feet Under," "Truman Show")</details>, Danny Glover <details><summary>(</summary>"Lethal Weapon 1-4," "Saw," "Color Purple," "2012," "Shooter")</details>, David Arquette <details><summary>(</summary>"Scream," "Cougar Town")</details>, Kristin Davis <details><summary>(</summary>"Sex and the City")</details>, Frank Darabont <details><summary>(</summary>"Shawshank Redemption," "Walking Dead," "Green Mile," "Mist," "Mary Shelley’s Frankenstein")</details>, Ajay Naidu <details><summary>(</summary>"Office Space," "Pi," "Bad Santa")</details>, Ron Fricke <details><summary>(</summary>"Star Wars III," "Samsara," "Baraka")</details>, Barrie Osborne <details><summary>(</summary>"Matrix," "Lord of the Rings," "Great Gatsby")</details>, Eugene Roddenberry Jr. <details><summary>(</summary>"Star Trek," "Earth: Final Conflict")</details>, and Ralph Guggenheim <details><summary>(</summary>"Toy Story")</details>. Only accredited investors with an express interest in movies are invited to attend these pitch sessions and to participate in the presented investment opportunities. <details><summary class="_standalone">(Under</summary> the federal securities laws, a company that offers or sells its securities must register the securities with the SEC or find an exemption from the registration requirements. The federal securities laws provide companies with a number of exemptions. For some of the exemptions, such as Rule 506 of Regulation D, a company may sell its securities to what are known as accredited investors. The term accredited investor is defined in Rule 501 of Regulation D.)</details></p>
                             </div>
                         </div>
                     </div>
@@ -181,7 +199,9 @@
                         <div class="col-lg-6 order-lg-1">
                             <div class="p-5">
                                 <h2 class="display-4">Partners in finance</h2>
-                                <p><ins datetime="2023-12-09T04:30:00Z" cite="#_partners">Film Angels has partnered with Greenlit Labs to deliver frictionless online workflows for filmmakers and financiers alike.</ins> Greenlit is a pioneering <del cite="#_platform" datetime="2023-12-09T04:30:00Z">platform</del> <ins datetime="2023-12-09T04:30:00Z" cite="https://en.wikipedia.org/wiki/Fintech">fintech startup</ins> in the film industry, revolutionizing film financing and rights management. It offers a comprehensive solution for film producers, enhancing efficiency through streamlined communication, advanced financial modeling, and ready-to-go templates. Greenlit's innovative approach simplifies the complexities of film development, making it an invaluable asset for filmmakers seeking a seamless, efficient process to bring their creative visions to life.</p>
+                                <p>Film Angels has partnered with Greenlit to deliver frictionless online workflows for filmmakers and financiers alike.</p>
+                                <p>Greenlit is a pioneering fintech startup in the motion picture industry, revolutionizing film finance and rights management. Its comprehensive solution enhances efficiency through streamlined communication, advanced financial modeling, and ready-to-go templates. It simplifies the complexities of movie development, making it an invaluable asset for those seeking a seamless process to bring creative visions to life.</p>
+                                <p>Greenlit's innovative technology was born out of the challenges the founders, Ian Grant and Bhargav Tarpara, faced producing independent films. Bhargav is an angel investor, advisor to startups, and software engineer with 8 years of hands-on experience, as well as a documentary producer. In addition to working as an actor, stuntman, producer, and Minorities in Film co-founder, Ian was part of the founding team at unicorn Squire Technologies, where he scaled sales and operations to over $1 billion in transactions.</p>
                             </div>
                         </div>
                     </div>
