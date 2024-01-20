@@ -1,4 +1,4 @@
-# ![Film Angels logo](/FA%20sans%20laurels%2032%25.png "Film Angels") Film Angels 
+# Film Angels 
 
 ## World's premier angel group for film 
 
