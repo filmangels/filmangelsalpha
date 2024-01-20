@@ -14,26 +14,26 @@
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
         <!-- https://stackoverflow.com/questions/42460930/how-to-resize-navbar-logo-on-scroll-down, https://stackoverflow.com/questions/26736587/how-to-add-and-remove-classes-in-javascript-without-jquery, https://css-tricks.com/the-order-of-css-classes-in-html-doesnt-matter/, https://developer.mozilla.org/en-US/docs/Web/API/Element/classList -->
         <script>
-                window.onscroll = function() {
-                    growShrinkLogo()
-                };
+            window.onscroll = function() {
+                growShrinkLogo()
+            };
 
-                function growShrinkLogo() {
-                    var Logo = document.getElementById("_logotype");
-                    var Navigation = document.getElementById("_navigation");
-                    var endOfDocumentTop = 50;
-                    if (document.body.scrollTop > endOfDocumentTop || document.documentElement.scrollTop > endOfDocumentTop) {
-                        // Logo.className = '_small-logo';
-                        Logo.classList.replace("_large-logo", "_small-logo");
-                        // Navigation.className = 'navbar navbar-expand-lg navbar-dark navbar-custom fixed-top';
-                        Navigation.classList.remove("_navbar-hollywood");
-                    } else {
-                        // Logo.className = '_large-logo';
-                        Logo.classList.replace("_small-logo", "_large-logo");
-                        // Navigation.className = 'navbar navbar-expand-lg navbar-dark navbar-custom _navbar-hollywood fixed-top';
-                        Navigation.classList.add("_navbar-hollywood");
-                    }
+            function growShrinkLogo() {
+                var Logo = document.getElementById("_logotype");
+                var Navigation = document.getElementById("_navigation");
+                var endOfDocumentTop = 50;
+                if (document.body.scrollTop > endOfDocumentTop || document.documentElement.scrollTop > endOfDocumentTop) {
+                    // Logo.className = '_small-logo';
+                    Logo.classList.replace("_large-logo", "_small-logo");
+                    // Navigation.className = 'navbar navbar-expand-lg navbar-dark navbar-custom fixed-top';
+                    Navigation.classList.remove("_navbar-hollywood");
+                } else {
+                    // Logo.className = '_large-logo';
+                    Logo.classList.replace("_small-logo", "_large-logo");
+                    // Navigation.className = 'navbar navbar-expand-lg navbar-dark navbar-custom _navbar-hollywood fixed-top';
+                    Navigation.classList.add("_navbar-hollywood");
                 }
+            }
         </script>
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet" />
@@ -333,7 +333,7 @@
                                         <div class="modal-dialog modal-dialog-centered modal-lg">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h1 class="modal-title fs-5" id="elevatorModalLabel">Modal title</h1>
+                                                    <h1 class="modal-title fs-5" id="elevatorModalLabel">Elevator Pitch to Film Angels (powered by Greenlit)</h1>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body">
